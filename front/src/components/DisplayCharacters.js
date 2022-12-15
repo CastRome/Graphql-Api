@@ -25,7 +25,7 @@ function DisplayCharacters() {
 
   return data.characters.map(({ id, name, image, status }) => (
     <div key={id} className="card">
-      <h3>{name}</h3>
+      <h2>{name}</h2>
       <img width="250" height="300" alt="location-reference" src={`${image}`} />
       <br />
       <b>Status:</b>

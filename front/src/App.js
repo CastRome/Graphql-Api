@@ -24,6 +24,7 @@ function App() {
             path="/"
             element={
               <div className="App">
+                <h1>Rick And Morty characters</h1>
                 <DisplayCharacters />
               </div>
             }

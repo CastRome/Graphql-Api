@@ -24,8 +24,8 @@ function DisplayCharacterInfo({ id }) {
   if (error) return <p>Error : {error.message}</p>;
 
   return (
-    <div key={data.character.id} className="card">
-      <h3>{data.character.name}</h3>
+    <div key={data.character.id} className="cardInfo">
+      <h2>{data.character.name}</h2>
       <img
         width="250"
         height="300"
@@ -54,6 +54,7 @@ const Info = () => {
   let params = useParams();
   return (
     <div className="App">
+      <h1>Character Info</h1>
       <DisplayCharacterInfo id={params.id} />{' '}
     </div>
   );
