@@ -1,7 +1,8 @@
-import { gql, useQuery } from '@apollo/client';
-import { useParams } from 'react-router';
 import '../App.css';
+import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import { gql, useQuery } from '@apollo/client';
+
 function DisplayCharacterInfo({ id }) {
   const GET_CHARACTER_INFO = gql`
     query GetCharactersInfo {
@@ -17,6 +18,7 @@ function DisplayCharacterInfo({ id }) {
       }
     }
   `;
+
   const { loading, error, data } = useQuery(GET_CHARACTER_INFO);
 
   if (loading) return <p>Loading...</p>;

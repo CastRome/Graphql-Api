@@ -1,41 +1,17 @@
 import './App.css';
-import {
-  ApolloClient,
-  ApolloProvider,
-  InMemoryCache,
-  gql,
-  useQuery,
-} from '@apollo/client';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import Info from './components/Info';
+import { Routes, Route } from 'react-router-dom';
+import Info from './pages/Info';
 import DisplayCharacters from './components/DisplayCharacters';
-const client = new ApolloClient({
-  uri: 'http://localhost:4000/',
-  cache: new InMemoryCache(),
-});
 
-function App() {
+const App = () => {
   return (
-    <ApolloProvider client={client}>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <div className="App">
-                <h1>Rick And Morty characters</h1>
-                <DisplayCharacters />
-              </div>
-            }
-          />
-          <Route exact path="/info" element={<Info />}>
-            <Route path=":id" element={<Info />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </ApolloProvider>
+    <Routes>
+      <Route exact path="/" element={<DisplayCharacters />} />
+      <Route exact path="/info" element={<Info />}>
+        <Route path=":id" element={<Info />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
